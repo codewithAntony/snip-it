@@ -4,4 +4,5 @@ import "github.com/codewithAntony/snip-it/internal/models"
 
 type templateData struct {
 	Snippet models.Snippet
+	Snippets []models.Snippet
 }
