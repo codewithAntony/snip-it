@@ -18,9 +18,10 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	app.render(w, r, http.StatusOK, "home.tmpl", templateData{
-		Snippets: snippets,
-	})
+	data := app.newTemplateData()
+	data.Snippets = snippets
+
+	app.render(w, r, http.StatusOK, "home.tmpl", data)
 
 	// for _, snippet := range snippets {
 	// 	fmt.Fprintf(w, "%+v\n", snippet)
@@ -67,9 +68,10 @@ func (app *application) snippetView(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	app.render(w, r, http.StatusOK, "view.tmpl", templateData{
-		Snippet: snippet,
-	})
+	data := app.newTemplateData()
+	data.Snippet = snippet
+
+	app.render(w, r, http.StatusOK, "view.tmpl", data)
 
 	// files := []string {
 	// 	"./ui/html/base.tmpl",
